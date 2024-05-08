@@ -77,6 +77,8 @@ app.layout = dbc.Container([
         ], md=6, style={'color': 'black'})
     ]),
 
+    html.Div(id='valor-menor-container'),  # Placeholder for callback output
+
     html.H6("ITEM Y VALOR MÁS BAJO", className='mb-4 text-center'),
     dbc.Row([
         dbc.Col(
@@ -92,8 +94,7 @@ app.layout = dbc.Container([
 
 # Callbacks
 @app.callback(
-    [Output('valor-menor-container', 'children'),
-     Output('tabla_valores_menor', 'data')],
+    Output('valor-menor-container', 'children'),
     [Input('tabla_valor_1', 'data'),
      Input('tabla_valor_2', 'data')]
 )
@@ -109,7 +110,7 @@ def update_valor_menor(data_valor_1, data_valor_2):
         # Calcular el valor menor
         max_values['VALOR_MENOR'] = [min(v1, v2) for v1, v2 in zip(valor_1_df['PRECIO_UNITARIO_1'], valor_2_df['PRECIO_UNITARIO_2'])]
         
-        return None, max_values[['ITEM', 'VALOR_MENOR']].to_dict('records')
+        return max_values[['ITEM', 'VALOR_MENOR']].to_dict('records')
 
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0', port=8050)
