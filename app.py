@@ -116,4 +116,4 @@ def update_tables(data_valor_1, data_valor_2):
                max_values[['ITEM', 'VALOR_MENOR']].to_dict('records')
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8050)
+    app.run_server(debug=True, host='0.0.0.0', port=8020)
