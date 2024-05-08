@@ -74,7 +74,19 @@ app.layout = dbc.Container([
                 style_table={'overflowX': 'auto'}
             )
         ], md=6, style={'color': 'black'})
-    ])
+    ]),
+
+    html.H6("ITEM Y VALOR MÁS BAJO", className='mb-4 text-center'),
+    dbc.Row([
+        dbc.Col(
+            dash_table.DataTable(
+                id='tabla_valores_menor',
+                columns=[{'name': 'ITEM', 'id': 'ITEM'}, {'name': 'VALOR_MENOR', 'id': 'VALOR_MENOR'}],
+                style_table={'overflowX': 'auto'}
+            ),
+            md=12
+        )
+    ], className='shadow p-3 border rounded')
 ], className='bg-light py-4')
 
 # Callbacks
