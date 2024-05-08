@@ -1,7 +1,6 @@
 import dash
 import dash_bootstrap_components as dbc
-from dash import html, dcc, Input, Output
-import dash_table
+from dash import html, dash_table, Input, Output
 import pandas as pd
 from difflib import get_close_matches
 
@@ -81,7 +80,6 @@ app.layout = dbc.Container([
 # Callbacks
 @app.callback(
     [Output('VALOR_MENOR', 'data'),
-     Output('tabla_item_comparado', 'data'),
      Output('tabla_valores_menor', 'data')],
     [Input('tabla_valor_1', 'data'),
      Input('tabla_valor_2', 'data')]
@@ -112,8 +110,7 @@ def update_tables(data_valor_1, data_valor_2):
 
         filtered_data = data_csv[data_csv['ITEM'].isin(similar_items)]
 
-        return max_values.to_dict('records'), filtered_data[['ITEM', 'TOTAL']].to_dict('records'), \
-               max_values[['ITEM', 'VALOR_MENOR']].to_dict('records')
+        return max_values.to_dict('records'), max_values[['ITEM', 'VALOR_MENOR']].to_dict('records')
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8020)
+    app.run_server(debug=True, host='0.0.0.0', port=8050)
