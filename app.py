@@ -1,4 +1,4 @@
-import dash
+mport dash
 import dash_bootstrap_components as dbc
 from dash import html, dash_table, Input, Output
 import pandas as pd
@@ -77,8 +77,6 @@ app.layout = dbc.Container([
         ], md=6, style={'color': 'black'})
     ]),
 
-    html.Div(id='valor-menor-container'),  # Placeholder for callback output
-
     html.H6("ITEM Y VALOR MÁS BAJO", className='mb-4 text-center'),
     dbc.Row([
         dbc.Col(
@@ -94,7 +92,7 @@ app.layout = dbc.Container([
 
 # Callbacks
 @app.callback(
-    Output('valor-menor-container', 'children'),
+    Output('tabla_valores_menor', 'data'),
     [Input('tabla_valor_1', 'data'),
      Input('tabla_valor_2', 'data')]
 )
