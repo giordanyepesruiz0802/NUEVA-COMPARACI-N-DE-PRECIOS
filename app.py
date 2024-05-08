@@ -1,4 +1,4 @@
-mport dash
+import dash
 import dash_bootstrap_components as dbc
 from dash import html, dash_table, Input, Output
 import pandas as pd
