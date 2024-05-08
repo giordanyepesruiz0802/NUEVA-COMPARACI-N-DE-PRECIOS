@@ -21,7 +21,7 @@ valor_1 = pd.DataFrame({"PRECIO_UNITARIO_1": valor1})
 valor_2 = pd.DataFrame({"PRECIO_UNITARIO_2": valor2})
 
 max_values = pd.DataFrame({"VALOR_MENOR": [min(v1, v2) for v1, v2 in zip(valor1, valor2)]})
-data_csv = pd.read_csv('backend/Lista_oficial_de_precios_unitarios_fijos_de_Obra_P_blica_y_de_consultor_a_-_DEPARTAMENTO_DE_BOYAC__20240505.csv')
+data_csv = pd.read_csv('Lista_oficial_de_precios_unitarios_fijos_de_Obra_P_blica_y_de_consultor_a_-_DEPARTAMENTO_DE_BOYAC__20240505.csv')
 
 # Dash app initialization
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
